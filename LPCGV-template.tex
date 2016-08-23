@@ -1,0 +1,130 @@
+\documentclass[12pt]{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Scale=MatchLowercase}
+\setromanfont[Mapping=tex-text]{Helvetica}
+\setsansfont[Mapping=tex-text]{Helvetica}
+\setmonofont{Monaco}
+\usepackage{bm}
+\usepackage{latexsym}
+\usepackage[centertags]{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{MyGreen}{rgb}{0,0.56078431372549,0.537254901960784}
+\definecolor{MyText}{rgb}{0.07843137254902,0.07843137254902,0.07843137254902}
+\usepackage{multirow}
+\usepackage{subfig} % multiple figures with their own caption
+\usepackage{setspace}
+\usepackage{makeidx}
+\usepackage{chngcntr} % This line and the next are used to remove the
+\counterwithout{figure}{chapter} % chapter number from the figures
+\counterwithout{table}{chapter} % tables.
+\counterwithout{equation}{chapter} % and equations.
+\usepackage[pdfwindowui=false,pdfstartview=FitH,pdftoolbar=true,colorlinks,linkcolor=MyGreen,urlcolor=MyGreen,citecolor=MyGreen,hyperindex=true]{hyperref}
+\usepackage{rotating} % sideways figs
+
+%--- Page layout definitions
+\hoffset -0.5in
+\voffset -0.8in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin 0in
+\headheight 13pt
+\headsep 19pt
+\textheight 9.85in
+\textwidth 7.5in
+\marginparsep 0in
+\marginparwidth 0pt
+\footskip 27pt
+
+\setlength{\parindent}{0in}
+
+% hyperref does not like user using \addcontentsline,
+% because of this I need to use the \phantomsection
+% just before \addcontentsline (from the hyperref package)
+\def\nonumpdffile#1{\section*{\phantomsection\addcontentsline{toc}{section}{#1}}}
+
+\newcommand{\properpagestyle}{\pagestyle{myheadings}\markboth{}{}\markright{}}
+
+\def\Fref#1{Fig. \ref{#1}}
+\def\FrefBegin#1{Figure \ref{#1}}
+\def\Tref#1{Table \ref{#1}}
+\def\Eref#1{Eq. \ref{#1}}
+\def\lsim{\mathrel{\rlap{\lower4pt\hbox{\hskip1pt$\sim$}}\raise1pt\hbox{$<$}}}
+
+\renewcommand{\bibname}{References}
+
+%\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{aligned_list}[1]{%
+\begin{list}{\textasteriskcentered}{%
+\settowidth{\labelwidth}{\textbf{#1.}}
+\settowidth{\leftmargin}{\textbf{#1.}}
+\addtolength{\leftmargin}{\labelsep}
+\renewcommand{\labelitemi}{\textasteriskcentered}}}
+{\end{list}}
+
+\makeindex
+
+\begin{document}
+
+\color{MyText}
+\properpagestyle
+
+%\maketitle \cleardoublepage
+
+%--- Contents
+\tableofcontents \cleardoublepage
+
+\vfill
+\chapter{Junior - Domestic}\thispagestyle{empty}
+
+NN domestic graduate students applying on Month Year. Alphabetical order with respect to last name of the student.
+\vfill
+
+\pagebreak
+
+\nonumpdffile{Advisor (Institution) on behalf of Student (Institution)}
+\begin{center} \fbox{\XeTeXpdffile "junior_domestic/lastName_firstName.pdf" page 1 scaled 850} \end{center} \pagebreak
+\begin{center} \fbox{\XeTeXpdffile "junior_domestic/lastName_firstName.pdf" page 2 scaled 850} \end{center} \pagebreak
+
+\vfill
+\chapter{Junior - International}\thispagestyle{empty}
+
+NN international graduate students applying on Month Year. Alphabetical order with respect to last name of the student.
+\vfill
+
+\pagebreak
+
+\nonumpdffile{Advisor (Institution) on behalf of Student (Institution)}
+\begin{center} \fbox{\XeTeXpdffile "junior_international/lastName_firstName.pdf" page 1 scaled 850} \end{center} \pagebreak
+\begin{center} \fbox{\XeTeXpdffile "junior_international/lastName_firstName.pdf" page 2 scaled 850} \end{center} \pagebreak
+
+\vfill
+\chapter{Senior - Domestic}\thispagestyle{empty}
+
+NN senior collaborators from a domestic institution applying on Month Year. Alphabetical order with respect to last name of the candidate.
+
+\vfill
+
+\pagebreak
+
+\nonumpdffile{Applicant (Institution)}
+\begin{center} \fbox{\XeTeXpdffile "senior_domestic/lastName_firstName.pdf" page 1 scaled 850} \end{center} \pagebreak
+\begin{center} \fbox{\XeTeXpdffile "senior_domestic/lastName_firstName.pdf" page 2 scaled 850} \end{center} \pagebreak
+
+\vfill
+\chapter{Senior - International}\thispagestyle{empty}
+
+NN collaborators from international institutions applying on Month Year. Alphabetical order with respect to last name of the candidate.
+
+\vfill
+
+\pagebreak
+
+\nonumpdffile{Applicant (Institution)}
+\begin{center} \fbox{\XeTeXpdffile "senior_international/lastName_firstName.pdf" page 1 scaled 850} \end{center} \pagebreak
+\begin{center} \fbox{\XeTeXpdffile "senior_international/lastName_firstName.pdf" page 2 scaled 850} \end{center} \pagebreak
+
+\end{document}
+
